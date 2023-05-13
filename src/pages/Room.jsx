@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 import {
   addDoc,
@@ -13,11 +13,10 @@ import {
 import { getAuth } from 'firebase/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { Message } from '../components/Message';
+import { UpdateProfile } from '../components/UpdateProfile';
 import { auth } from '../firebase/firebase';
 
 export default function Room() {
-  const dummy = useRef();
-
   const recentMessagesQuery = query(
     collection(getFirestore(), 'messages'),
     orderBy('createdAt', 'desc'),
@@ -26,6 +25,9 @@ export default function Room() {
 
   const [messages] = useCollectionData(recentMessagesQuery, { idField: 'id' });
   const [formValue, setFormValue] = useState('');
+  const [showProfileModal, setShowProfileModal] = useState(
+    !localStorage.getItem('showProfileModal')
+  );
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -47,8 +49,11 @@ export default function Room() {
       <main className="flex flex-col-reverse gap-4 p-4">
         {messages &&
           messages.map((msg, index) => <Message key={index} message={msg} />)}
-        <span ref={dummy} />
       </main>
+
+      {showProfileModal && (
+        <UpdateProfile user={auth.currentUser} close={setShowProfileModal} />
+      )}
 
       <form className="fixed bottom-0 left-0 w-full" onSubmit={sendMessage}>
         <div className="relative">
