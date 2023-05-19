@@ -22,7 +22,7 @@ export function UpdateProfile({ user, close }) {
 
   return (
     <div className="fixed inset-0 z-40 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-      <div tabIndex="-1" aria-hidden="true" className="z-50 w-full p-4">
+      <div tabIndex="-1" aria-hidden="true" className="z-50 p-4">
         <div className="relative w-full max-w-md max-h-full">
           <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <button
