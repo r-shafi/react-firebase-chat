@@ -72,7 +72,7 @@ export default function Room() {
         </svg>
       </button>
 
-      <main className="flex flex-col-reverse gap-4 p-4">
+      <main className="flex flex-col-reverse gap-4 p-4 pb-16">
         {messages &&
           messages.map((msg, index) => <Message key={index} message={msg} />)}
       </main>
