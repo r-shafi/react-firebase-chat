@@ -9,7 +9,7 @@ export function Message(props) {
     <div
       className={`w-full max-w-xs p-4 text-gray-500 ${
         sent ? 'bg-red-200 self-end' : 'bg-green-200'
-      } rounded-lg shadow dark:bg-gray-800 dark:text-gray-400`}
+      } rounded-lg shadow`}
     >
       <div className="flex">
         <img
