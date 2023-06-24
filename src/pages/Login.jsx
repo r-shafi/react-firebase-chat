@@ -13,7 +13,8 @@ export default function Login() {
       </h1>
       <p className="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48">
         Connect with your university friends in an anonymous chat room where you
-        can talk about anything without judgment.
+        can talk about anything without judgment. <br />
+        আপনার পরিচয় প্রকাশ না করে বন্ধুদের সাথে কথা বলুন
       </p>
       <button
         type="button"
